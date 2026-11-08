@@ -1,6 +1,6 @@
 # Noor Al-Basirah — HifzAI reuse and migration plan
 
-Status: planning only; no source code or intellectual-property ownership has been transferred.
+Status: the project initiator has approved pursuing ownership transfer to Erthi. This is authorization to plan and document the transfer, NOT evidence that a legal IP assignment or GitHub transfer has occurred.
 
 ## Existing source
 - https://github.com/nexvary/NEXVARY-HifzAI
@@ -9,6 +9,13 @@ Status: planning only; no source code or intellectual-property ownership has bee
 
 ## Decision
 Build Noor Al-Basirah as Erthi's standalone Quran memorization and accessibility application. Reuse verified, compatible HifzAI components selectively, rather than deleting or automatically transferring the existing repository.
+
+## Ownership transition decision
+- Intended public project home: Erthi-Org/Noor-Al-Basirah, retaining full commit history and contributor attribution.
+- Erthi-Org is a GitHub organization, not automatically a separate legal person capable of holding IP. Identify the actual legal rights-holder and intended transferee before signing any assignment.
+- The original repository declares copyright 2026 NEXVARY. Confirm whether the owner is an individual or Nexvary Inc and whether company approvals are required.
+- Prepare a signed written IP assignment or an appropriate irrevocable license to a legally identified holder, then update notices; do not claim ownership has already changed.
+- Do not overwrite or delete the existing Noor-Al-Basirah repository; integrate via reviewed history-preserving migration and PRs.
 
 ## Before any reuse
 1. Inventory actual source files, dependencies, contributors, code quality, tests, and build status.

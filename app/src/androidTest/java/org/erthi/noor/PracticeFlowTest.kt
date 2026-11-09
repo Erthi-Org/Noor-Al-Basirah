@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import android.content.pm.ActivityInfo
 import android.content.res.Configuration
 import androidx.compose.ui.test.*
+import androidx.compose.ui.semantics.SemanticsActions
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.core.os.LocaleListCompat
 import androidx.test.platform.app.InstrumentationRegistry
@@ -18,7 +19,7 @@ class PracticeFlowTest {
 
     private fun click(label: String) {
         rule.onNode(hasScrollToIndexAction()).performScrollToNode(hasText(label))
-        rule.onNodeWithText(label).performClick()
+        rule.onNodeWithText(label).assertIsEnabled().performSemanticsAction(SemanticsActions.OnClick) { it() }
     }
 
     @Test fun chooseAyahRepeatRecallAndPreserveScheduleAcrossConfigurationChanges() {
@@ -32,6 +33,7 @@ class PracticeFlowTest {
         rule.onNode(hasScrollToIndexAction()).performScrollToNode(hasText(search))
         rule.onNode(hasSetTextAction()).performTextInput("112:2")
         click(rule.activity.getString(R.string.verse_address, 112, 2))
+        rule.waitUntil(10000) { repo.session().chapter == 112 && repo.session().ayah == 2 }
 
         val nextStage = rule.activity.getString(R.string.next_stage)
         repeat(3) { click(nextStage) }

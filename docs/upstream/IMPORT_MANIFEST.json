@@ -1,0 +1,122 @@
+{
+  "source_repository": "https://github.com/nexvary/NEXVARY-HifzAI",
+  "source_commit": "ceb2e79b960f962ab897b5842ff69b85ff21b25c",
+  "archive": "hifzai-history.bundle",
+  "archive_sha256": "dd97af0e339b09264453300d1fa2a2a544501aeb7384c6bf997c2c47220947f0",
+  "files": [
+    {
+      "source_path": "app/src/main/java/com/nexvary/hifzai/learning/HifzEngine.kt",
+      "destination_path": "app/src/main/java/com/nexvary/hifzai/learning/HifzEngine.kt",
+      "sha256": "ad0b7255a6588cb751e8fecaa978e6c1aa355bfc0e708003ae44a4b73b654013",
+      "modification": "none"
+    },
+    {
+      "source_path": "app/src/main/java/com/nexvary/hifzai/learning/RecallLadder.kt",
+      "destination_path": "app/src/main/java/com/nexvary/hifzai/learning/RecallLadder.kt",
+      "sha256": "1828376994e16c14a706bff5153c9c7956ab333c91e2256b439f4bbb996d8615",
+      "modification": "none"
+    },
+    {
+      "source_path": "app/src/main/java/com/nexvary/hifzai/learning/QuranCorpus.kt",
+      "destination_path": "app/src/main/java/com/nexvary/hifzai/learning/QuranCorpus.kt",
+      "sha256": "74bc172e5b56d46eea97be61d2d519cf0296ddf65b61aa818552969ea1285584",
+      "modification": "none"
+    },
+    {
+      "source_path": "app/src/main/java/com/nexvary/hifzai/learning/QuranSearchIndex.kt",
+      "destination_path": "app/src/main/java/com/nexvary/hifzai/learning/QuranSearchIndex.kt",
+      "sha256": "516f633c22cfa1cc7b695cc9f36754e3b95872956acaa58063627892cd0836ea",
+      "modification": "none"
+    },
+    {
+      "source_path": "app/src/main/java/com/nexvary/hifzai/learning/PracticeSession.kt",
+      "destination_path": "app/src/main/java/com/nexvary/hifzai/learning/PracticeSession.kt",
+      "sha256": "d8026dc58e1368d73815c8e999095d52861b8cfe6257c96e4a0bf28638e2e776",
+      "modification": "none"
+    },
+    {
+      "source_path": "app/src/main/java/com/nexvary/hifzai/learning/AdaptivePractice.kt",
+      "destination_path": "app/src/main/java/com/nexvary/hifzai/learning/AdaptivePractice.kt",
+      "sha256": "641f7a33b8921aed849d8f14aafbca120a0ecc7a32fd6d8af870b0d3d8560219",
+      "modification": "none"
+    },
+    {
+      "source_path": "app/src/test/java/com/nexvary/hifzai/learning/HifzEngineTest.kt",
+      "destination_path": "app/src/test/java/com/nexvary/hifzai/learning/HifzEngineTest.kt",
+      "sha256": "33ff127b431a9721843d3a9d9c575f725efae642cba3e37d59628c049ea48df0",
+      "modification": "none"
+    },
+    {
+      "source_path": "app/src/test/java/com/nexvary/hifzai/learning/RecallLadderTest.kt",
+      "destination_path": "app/src/test/java/com/nexvary/hifzai/learning/RecallLadderTest.kt",
+      "sha256": "dc087cbe127fb8ee312647668260167ae4fdcf54ab3b93ea5da5bae2d8d57b5c",
+      "modification": "none"
+    },
+    {
+      "source_path": "app/src/test/java/com/nexvary/hifzai/learning/QuranCorpusJvmTest.kt",
+      "destination_path": "app/src/test/java/com/nexvary/hifzai/learning/QuranCorpusJvmTest.kt",
+      "sha256": "2ee3481545a58ba98845f1c1c285213b1e60da5670fb06e8be7fc844a1356d48",
+      "modification": "none"
+    },
+    {
+      "source_path": "app/src/test/java/com/nexvary/hifzai/learning/BasmalaPresentationTest.kt",
+      "destination_path": "app/src/test/java/com/nexvary/hifzai/learning/BasmalaPresentationTest.kt",
+      "sha256": "0a4193e4536b1911845979b71b93fc79ad05bb6686c630a453bf06128f8d8009",
+      "modification": "none"
+    },
+    {
+      "source_path": "app/src/test/java/com/nexvary/hifzai/learning/AdaptivePracticeTest.kt",
+      "destination_path": "app/src/test/java/com/nexvary/hifzai/learning/AdaptivePracticeTest.kt",
+      "sha256": "02eadb165bab13d9510378d3e47f580397b6ef809d8930037c70c12684bf5f1d",
+      "modification": "none"
+    },
+    {
+      "source_path": "app/src/main/assets/quran/uthmani-v1.1.txt",
+      "destination_path": "app/src/main/assets/quran/uthmani-v1.1.txt",
+      "sha256": "6933e133dd56db778c801bf738848454e43648105a151e8d84d86a7cae39ec5f",
+      "modification": "none"
+    },
+    {
+      "source_path": "app/src/main/assets/quran/surah-metadata.txt",
+      "destination_path": "app/src/main/assets/quran/surah-metadata.txt",
+      "sha256": "ec86874d26dd3bcd5474b9dd6afb92541484e13b8c8d0da8138e070885bc5b51",
+      "modification": "none"
+    },
+    {
+      "source_path": "app/src/main/res/font/amiri_quran.ttf",
+      "destination_path": "app/src/main/res/font/amiri_quran.ttf",
+      "sha256": "8fa95faaf7bd18b71789f6f57312003e30c5029218a035e5baf613a0222ab82d",
+      "modification": "none"
+    },
+    {
+      "source_path": "app/src/main/assets/licenses/AMIRI-OFL.txt",
+      "destination_path": "app/src/main/assets/licenses/AMIRI-OFL.txt",
+      "sha256": "72de68e5954f4fdd24702292ef5a32f003ca960ec9330dc86e5eefb5dffb9b22",
+      "modification": "none"
+    },
+    {
+      "source_path": "app/src/main/assets/licenses/TANZIL-NOTICE.txt",
+      "destination_path": "app/src/main/assets/licenses/TANZIL-NOTICE.txt",
+      "sha256": "72493509d507314f60c018fd33aa57d9064a0de42be8926745e4953f59925c62",
+      "modification": "none"
+    },
+    {
+      "source_path": "app/src/main/assets/licenses/NEXVARY-MIT.txt",
+      "destination_path": "app/src/main/assets/licenses/NEXVARY-MIT.txt",
+      "sha256": "3d33cc737d33a15438a069112bfc540354cec3c86cc4296bdaf8c86e8326f485",
+      "modification": "none"
+    },
+    {
+      "source_path": "app/src/main/assets/licenses/Apache-2.0.txt",
+      "destination_path": "app/src/main/assets/licenses/Apache-2.0.txt",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "modification": "none"
+    },
+    {
+      "source_path": "app/src/main/java/com/nexvary/hifzai/learning/DemoVerses.kt",
+      "destination_path": "app/src/main/java/com/nexvary/hifzai/learning/VerifiedVerse.kt",
+      "sha256": "1c02ef31ad88b3c1a602e47fae0f3624db6e41e571c6fcb0ae2752fa267980e8",
+      "modification": "Extracted VerifiedVerse value type only; excluded prototype verse fixtures."
+    }
+  ]
+}

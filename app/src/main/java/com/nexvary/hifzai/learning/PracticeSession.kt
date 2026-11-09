@@ -1,0 +1,39 @@
+package com.nexvary.hifzai.learning
+
+/** No audio or typed recitation is persisted with a session. */
+data class PracticeSession(
+    val chapter: Int,
+    val ayah: Int,
+    val stage: PracticeKind,
+    val hints: Int,
+    val exposed: Boolean,
+    val difficulty: DifficultyTag,
+    val rangeStart: Int = 0,
+    val rangeEnd: Int = 0,
+    val followsDailyPlan: Boolean = false,
+    val planChapter: Int = if (followsDailyPlan) chapter else 0
+) {
+    init {
+        require(chapter in 1..114 && ayah in 1..286)
+        require(hints in 0..100)
+        require((rangeStart == 0 && rangeEnd == 0) || (rangeStart > 0 && rangeEnd >= rangeStart))
+        require(!followsDailyPlan || rangeStart == 0) { "A range session cannot also follow the daily proposal" }
+        require(if (followsDailyPlan) planChapter in 1..114 else planChapter == 0)
+    }
+    /** Assistance belongs to the entire attempt, not a selected screen/stage. */
+    fun changeStage(next: PracticeKind) = copy(
+        stage = next,
+        exposed = exposed || (next == PracticeKind.READ && stage != PracticeKind.READ)
+    )
+    val effectiveHighScoreAllowed: Boolean get() = hints == 0 && !exposed &&
+        (stage == PracticeKind.RECALL || stage == PracticeKind.BRIDGE)
+}
+
+data class RecallObservation(
+    val epochDay: Long,
+    val grade: RecallGrade,
+    val hints: Int,
+    val exposed: Boolean,
+    val difficulty: DifficultyTag,
+    val kind: PracticeKind? = null
+)

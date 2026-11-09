@@ -1,6 +1,8 @@
 package org.erthi.noor
 
 import androidx.appcompat.app.AppCompatDelegate
+import android.content.pm.ActivityInfo
+import android.content.res.Configuration
 import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.core.os.LocaleListCompat
@@ -50,7 +52,12 @@ class PracticeFlowTest {
                 AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(code))
             }
             rule.waitUntil(30000) { rule.activity.resources.configuration.locales[0].language == code }
-            rule.activityRule.scenario.recreate()
+            rule.activityRule.scenario.onActivity {
+                it.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+            }
+            rule.waitUntil(30000) {
+                rule.activity.resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
+            }
             val address = rule.activity.getString(R.string.verse_address, 112, 2)
             rule.waitUntil(30000) {
                 rule.onAllNodes(hasScrollToIndexAction()).fetchSemanticsNodes().isNotEmpty()

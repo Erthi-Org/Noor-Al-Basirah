@@ -1,6 +1,6 @@
 # نور البصيرة | Noor Al-Basirah
 
-Erthi | إرثي — Free & Open-Source Islamic Software  
+Erthi | إرثي — Free & Open-Source Islamic Software
 https://erthi.org · admin@erthi.org
 
 Android alpha for offline Quran memorization, built around selectively migrated MIT HifzAI engines and their original tests. Includes a byte-verified 6236-ayah Tanzil corpus, source-based search and surah/ayah navigation, display-only word masking, recall/bridge stages, bounded self-assessment, spaced review, local session/progress and a daily target. External reciter playback and the old app’s full feature set have not yet been migrated.

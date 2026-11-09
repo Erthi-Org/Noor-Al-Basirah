@@ -68,11 +68,17 @@ import java.time.LocalDate
                     }
                 }
             }
-            item { Row(Modifier.fillMaxWidth(), horizontalArrangement=Arrangement.SpaceBetween) {
-                OutlinedButton(onClick={model.move(-1)},enabled=session.ayah>1) { Text(stringResource(R.string.previous)) }
-                Text(stringResource(R.string.verse_address,session.chapter,session.ayah),modifier=Modifier.weight(1f).padding(8.dp))
-                OutlinedButton(onClick={model.move(1)},enabled=session.ayah<corpus.info(session.chapter).ayahCount) { Text(stringResource(R.string.next)) }
-            } }
+            item {
+                Text(stringResource(R.string.verse_address, session.chapter, session.ayah),
+                    modifier = Modifier.semantics { liveRegion = LiveRegionMode.Polite })
+                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    OutlinedButton(onClick = { model.move(-1) }, enabled = session.ayah > 1,
+                        modifier = Modifier.weight(1f)) { Text(stringResource(R.string.previous)) }
+                    OutlinedButton(onClick = { model.move(1) },
+                        enabled = session.ayah < corpus.info(session.chapter).ayahCount,
+                        modifier = Modifier.weight(1f)) { Text(stringResource(R.string.next)) }
+                }
+            }
             item {
                 val stageRes=when(session.stage) {
                     PracticeKind.READ->R.string.stage_read; PracticeKind.MASK_LIGHT->R.string.stage_light

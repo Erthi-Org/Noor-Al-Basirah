@@ -85,6 +85,7 @@ class NoorModel(app: Application) : AndroidViewModel(app) {
     fun reveal() = update { it.copy(session=it.session.copy(exposed=true)) }
     fun hint() = update { it.copy(session=it.session.copy(hints=(it.session.hints+1).coerceAtMost(100))) }
     fun grade(reported: RecallGrade) = update { s ->
+        if (s.session.stage != PracticeKind.RECALL && s.session.stage != PracticeKind.BRIDGE) return@update s
         val id = s.session.chapter*1000+s.session.ayah
         val grade=RecallLadder.boundedGrade(reported,s.session.hints,s.session.exposed)
         val card=HifzScheduler.grade(s.cards[id] ?: ReviewCard(id),grade,LocalDate.now().toEpochDay())

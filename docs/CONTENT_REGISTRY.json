@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "public_identity": "Erthi | إرثي",
+  "contact": "admin@erthi.org",
+  "religious_review": "pending",
+  "entries": [
+    {
+      "path": "app/src/main/assets/quran/uthmani-v1.1.txt",
+      "source": "https://tanzil.net/pub/download/index.php?quranType=uthmani&outType=txt-2&marks=true&sajdah=true&tatweel=true&agree=true",
+      "license": "CC-BY-3.0; verbatim-copy/no-changes terms",
+      "version": "Uthmani 1.1",
+      "sha256": "6933e133dd56db778c801bf738848454e43648105a151e8d84d86a7cae39ec5f",
+      "review_status": "pending"
+    },
+    {
+      "path": "app/src/main/res/font/amiri_quran.ttf",
+      "source": "https://github.com/aliftype/amiri/tree/d3d0c5cb6fe7196cb4a58608fc5c8ecd2e6e80fa",
+      "license": "OFL-1.1",
+      "version": "d3d0c5c",
+      "sha256": "8fa95faaf7bd18b71789f6f57312003e30c5029218a035e5baf613a0222ab82d",
+      "review_status": "pending"
+    },
+    {
+      "path": "app/src/main/assets/quran/surah-metadata.txt",
+      "source": "https://github.com/nexvary/NEXVARY-HifzAI/blob/ceb2e79b960f962ab897b5842ff69b85ff21b25c/app/src/main/assets/quran/surah-metadata.txt",
+      "license": "MIT source metadata table; source/display review pending",
+      "version": "ceb2e79",
+      "sha256": "ec86874d26dd3bcd5474b9dd6afb92541484e13b8c8d0da8138e070885bc5b51",
+      "review_status": "pending"
+    }
+  ]
+}

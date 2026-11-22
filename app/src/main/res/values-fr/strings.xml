@@ -69,4 +69,7 @@
     <string name="legacy_saved">Compteurs HifzAI enregistrés.</string>
     <string name="legacy_unchanged">Le fichier ne contient aucun compteur plus récent.</string>
     <string name="legacy_failed">Importation impossible. Choisissez un CSV de progression HifzAI.</string>
+    <string name="bookmarks">Favoris</string>
+    <string name="bookmarks_empty">Aucun verset dans les favoris.</string>
+    <string name="bookmark_verse">Favori du verset</string>
 </resources>

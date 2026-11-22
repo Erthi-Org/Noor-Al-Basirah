@@ -69,4 +69,7 @@
     <string name="legacy_saved">HifzAI-Zähler gespeichert.</string>
     <string name="legacy_unchanged">Die Datei enthält keine neueren Zähler.</string>
     <string name="legacy_failed">Import fehlgeschlagen. Wählen Sie eine HifzAI-Fortschrittsdatei im CSV-Format.</string>
+    <string name="bookmarks">Lesezeichen</string>
+    <string name="bookmarks_empty">Noch keine Verse gespeichert.</string>
+    <string name="bookmark_verse">Verslesezeichen</string>
 </resources>

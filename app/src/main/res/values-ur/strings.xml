@@ -69,4 +69,7 @@
     <string name="legacy_saved">HifzAI کے شمار محفوظ ہو گئے۔</string>
     <string name="legacy_unchanged">فائل میں نئے شمار موجود نہیں ہیں۔</string>
     <string name="legacy_failed">فائل درآمد نہیں ہو سکی۔ HifzAI کی پیش رفت کی CSV فائل منتخب کریں۔</string>
+    <string name="bookmarks">نشان زد آیات</string>
+    <string name="bookmarks_empty">ابھی کوئی آیت نشان زد نہیں ہے۔</string>
+    <string name="bookmark_verse">آیت کا نشان</string>
 </resources>

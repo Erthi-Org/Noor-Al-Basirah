@@ -69,4 +69,7 @@
     <string name="legacy_saved">Se guardaron los contadores de HifzAI.</string>
     <string name="legacy_unchanged">El archivo no contiene contadores más recientes.</string>
     <string name="legacy_failed">No se pudo importar el archivo. Elige un CSV de progreso de HifzAI.</string>
+    <string name="bookmarks">Marcadores</string>
+    <string name="bookmarks_empty">Aún no hay aleyas marcadas.</string>
+    <string name="bookmark_verse">Marcador de la aleya</string>
 </resources>

@@ -69,4 +69,7 @@
     <string name="legacy_saved">حُفظت عدادات HifzAI.</string>
     <string name="legacy_unchanged">لا توجد عدادات أحدث في الملف.</string>
     <string name="legacy_failed">تعذر استيراد الملف. اختر ملف CSV لتقدم HifzAI.</string>
+    <string name="bookmarks">العلامات المرجعية</string>
+    <string name="bookmarks_empty">لم تُضف أي علامات مرجعية بعد.</string>
+    <string name="bookmark_verse">علامة الآية المرجعية</string>
 </resources>

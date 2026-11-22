@@ -62,6 +62,9 @@ class NoorRepository(app: Application) {
         PracticeSession(o.getInt("chapter"), o.getInt("ayah"), PracticeKind.valueOf(o.getString("stage")),
             o.getInt("hints"), o.getBoolean("exposed"), DifficultyTag.NONE)
     }.getOrDefault(PracticeSession(1,1,PracticeKind.READ,0,false,DifficultyTag.NONE))
+    fun bookmarks(): Set<Int> = prefs.getStringSet("bookmarks", emptySet()).orEmpty()
+        .mapNotNull { it.toIntOrNull() }.toSet()
+
     fun target() = prefs.getInt("target", 2).coerceIn(1,20)
     fun cards(): Map<Int, ReviewCard> {
         val result = mutableMapOf<Int,ReviewCard>()
@@ -74,19 +77,26 @@ class NoorRepository(app: Application) {
         } }
         return result
     }
-    fun save(session: PracticeSession, target: Int, cards: Map<Int, ReviewCard>): Boolean {
+    fun save(
+        session: PracticeSession,
+        target: Int,
+        cards: Map<Int, ReviewCard>,
+        bookmarks: Set<Int> = bookmarks(),
+    ): Boolean {
         val s = JSONObject().put("chapter",session.chapter).put("ayah",session.ayah).put("stage",session.stage.name)
             .put("hints",session.hints).put("exposed",session.exposed)
         val c = JSONObject()
         cards.forEach { (id, card) -> c.put(id.toString(), JSONObject().put("repetitions",card.repetitions)
             .put("ease",card.ease).put("interval",card.intervalDays).put("due",card.dueEpochDay).put("lapses",card.lapses)) }
-        return prefs.edit().putString("session",s.toString()).putInt("target",target).putString("cards",c.toString()).commit()
+        return prefs.edit().putString("session",s.toString()).putInt("target",target).putString("cards",c.toString())
+            .putStringSet("bookmarks", bookmarks.map { it.toString() }.toSet()).commit()
     }
 }
 
 data class NoorState(val corpus: QuranCorpus? = null, val loading: Boolean = true, val error: Boolean = false,
     val session: PracticeSession = PracticeSession(1,1,PracticeKind.READ,0,false,DifficultyTag.NONE),
-    val target: Int = 2, val cards: Map<Int,ReviewCard> = emptyMap())
+    val target: Int = 2, val cards: Map<Int,ReviewCard> = emptyMap(),
+    val bookmarks: Set<Int> = emptySet())
 
 enum class LegacyImportStatus { BUSY, SAVED, UNCHANGED, FAILED }
 
@@ -129,7 +139,9 @@ class NoorModel(app: Application) : AndroidViewModel(app) {
             val corpus = repository.loadCorpus()
             val session = repository.session().takeIf { corpus.find(it.chapter,it.ayah) != null }
                 ?: PracticeSession(1,1,PracticeKind.READ,0,false,DifficultyTag.NONE)
-            NoorState(corpus,false,false,session,repository.target(),repository.cards().filterKeys { id -> corpus.find(id/1000,id%1000) != null })
+            val cards = repository.cards().filterKeys { id -> corpus.find(id / 1000, id % 1000) != null }
+            val bookmarks = repository.bookmarks().filter { id -> corpus.find(id / 1000, id % 1000) != null }.toSet()
+            NoorState(corpus, false, false, session, repository.target(), cards, bookmarks)
         } }.onSuccess { loaded ->
             _state.value = loaded
             _legacyCount.value = withContext(Dispatchers.IO) {
@@ -150,7 +162,7 @@ class NoorModel(app: Application) : AndroidViewModel(app) {
         viewModelScope.launch {
             writes.lock()
             try {
-                val saved = withContext(Dispatchers.IO) { repository.save(next.session,next.target,next.cards) }
+                val saved = withContext(Dispatchers.IO) { repository.save(next.session, next.target, next.cards, next.bookmarks) }
                 if (!saved) _state.value = _state.value.copy(error=true)
             } finally { writes.unlock() }
         }
@@ -158,6 +170,11 @@ class NoorModel(app: Application) : AndroidViewModel(app) {
     fun select(chapter: Int, ayah: Int = 1) = update { s ->
         if (s.corpus?.find(chapter,ayah) == null) s else s.copy(session=PracticeSession(chapter,ayah,PracticeKind.READ,0,false,DifficultyTag.NONE))
     }
+    fun toggleBookmark(id: Int) = update { s ->
+        if (s.corpus?.find(id / 1000, id % 1000) == null) return@update s
+        s.copy(bookmarks = if (id in s.bookmarks) s.bookmarks - id else s.bookmarks + id)
+    }
+
     fun move(delta: Int) { val s=_state.value; select(s.session.chapter,s.session.ayah+delta) }
     fun target(value: Int) = update { it.copy(target=value.coerceIn(1,20)) }
     fun nextStage() = update { it.copy(session=it.session.changeStage(RecallLadder.next(it.session.stage))) }

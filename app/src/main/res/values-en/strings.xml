@@ -69,4 +69,7 @@
     <string name="legacy_saved">HifzAI counters saved.</string>
     <string name="legacy_unchanged">The file has no newer counters.</string>
     <string name="legacy_failed">Could not import the file. Choose a HifzAI progress CSV.</string>
+    <string name="bookmarks">Bookmarks</string>
+    <string name="bookmarks_empty">No bookmarked verses yet.</string>
+    <string name="bookmark_verse">Verse bookmark</string>
 </resources>

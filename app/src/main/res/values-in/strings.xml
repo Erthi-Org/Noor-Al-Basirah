@@ -69,4 +69,7 @@
     <string name="legacy_saved">Penghitung HifzAI disimpan.</string>
     <string name="legacy_unchanged">Berkas tidak berisi penghitung yang lebih baru.</string>
     <string name="legacy_failed">Berkas gagal diimpor. Pilih CSV progres HifzAI.</string>
+    <string name="bookmarks">Markah</string>
+    <string name="bookmarks_empty">Belum ada ayat yang ditandai.</string>
+    <string name="bookmark_verse">Markah ayat</string>
 </resources>

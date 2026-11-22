@@ -69,4 +69,7 @@
     <string name="legacy_saved">HifzAI sayaçları kaydedildi.</string>
     <string name="legacy_unchanged">Dosyada daha güncel sayaç yok.</string>
     <string name="legacy_failed">Dosya içe aktarılamadı. HifzAI ilerleme CSV dosyasını seçin.</string>
+    <string name="bookmarks">Yer işaretleri</string>
+    <string name="bookmarks_empty">Henüz işaretlenmiş ayet yok.</string>
+    <string name="bookmark_verse">Ayet yer işareti</string>
 </resources>

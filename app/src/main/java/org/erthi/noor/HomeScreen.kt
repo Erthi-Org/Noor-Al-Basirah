@@ -1,5 +1,7 @@
 package org.erthi.noor
 
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -27,6 +29,11 @@ import java.time.LocalDate
 @Composable fun HomeScreen(onSettings: () -> Unit, model: NoorModel = viewModel()) {
     val state by model.state.collectAsStateWithLifecycle()
     val corpus = state.corpus
+    val legacyCount by model.legacyCount.collectAsStateWithLifecycle()
+    val importStatus by model.importStatus.collectAsStateWithLifecycle()
+    val csvPicker = rememberLauncherForActivityResult(ActivityResultContracts.GetContent()) { uri ->
+        if (uri != null) model.importLegacy(uri)
+    }
     val haptic = LocalHapticFeedback.current
     var search by rememberSaveable { mutableStateOf("") }
     var selecting by rememberSaveable { mutableStateOf(false) }
@@ -124,6 +131,24 @@ import java.time.LocalDate
                 Slider(value=state.target.toFloat(),onValueChange={model.target(it.toInt())},valueRange=1f..20f,steps=18,
                     modifier=Modifier.semantics { contentDescription=context.getString(R.string.daily_target) })
                 Button(onClick=model::dailyPractice,modifier=Modifier.fillMaxWidth()) { Text(stringResource(R.string.practice)) }
+            }
+            item {
+                TextButton(onClick = { csvPicker.launch("text/*") },
+                    enabled = importStatus != LegacyImportStatus.BUSY, modifier = Modifier.fillMaxWidth()) {
+                    Text(stringResource(R.string.legacy_import))
+                }
+                legacyCount?.takeIf { it > 0 }?.let { count ->
+                    Text(stringResource(R.string.legacy_count, count))
+                }
+                importStatus?.let { status ->
+                    val message = when (status) {
+                        LegacyImportStatus.BUSY -> R.string.loading
+                        LegacyImportStatus.SAVED -> R.string.legacy_saved
+                        LegacyImportStatus.UNCHANGED -> R.string.legacy_unchanged
+                        LegacyImportStatus.FAILED -> R.string.legacy_failed
+                    }
+                    Text(stringResource(message), modifier = Modifier.semantics { liveRegion = LiveRegionMode.Polite })
+                }
             }
             item { Text(stringResource(R.string.no_audio)); Text(stringResource(R.string.source_credit));
                 TextButton(onClick={license=true}) { Text(stringResource(R.string.sources)) }; Spacer(Modifier.height(20.dp)) }

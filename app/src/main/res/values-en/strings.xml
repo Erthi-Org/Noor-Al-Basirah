@@ -64,4 +64,9 @@
  <string name="zakat">Zakat and Charity</string>
  <string name="fasting">Fasting and Ramadan</string>
  <string name="hajj">Hajj and Umrah</string>
+    <string name="legacy_import">Import HifzAI CSV</string>
+    <string name="legacy_count">Verses with imported counters: %1$d</string>
+    <string name="legacy_saved">HifzAI counters saved.</string>
+    <string name="legacy_unchanged">The file has no newer counters.</string>
+    <string name="legacy_failed">Could not import the file. Choose a HifzAI progress CSV.</string>
 </resources>

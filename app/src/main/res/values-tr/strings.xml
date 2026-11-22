@@ -64,4 +64,9 @@
  <string name="zakat">Zekât ve sadaka</string>
  <string name="fasting">Oruç ve Ramazan</string>
  <string name="hajj">Hac ve umre</string>
+    <string name="legacy_import">HifzAI CSV dosyasını içe aktar</string>
+    <string name="legacy_count">Sayaçları içe aktarılan ayetler: %1$d</string>
+    <string name="legacy_saved">HifzAI sayaçları kaydedildi.</string>
+    <string name="legacy_unchanged">Dosyada daha güncel sayaç yok.</string>
+    <string name="legacy_failed">Dosya içe aktarılamadı. HifzAI ilerleme CSV dosyasını seçin.</string>
 </resources>

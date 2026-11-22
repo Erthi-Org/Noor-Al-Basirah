@@ -64,4 +64,9 @@
  <string name="zakat">Zakat et aumône</string>
  <string name="fasting">Jeûne et Ramadan</string>
  <string name="hajj">Hajj et Omra</string>
+    <string name="legacy_import">Importer le CSV de HifzAI</string>
+    <string name="legacy_count">Versets avec compteurs importés : %1$d</string>
+    <string name="legacy_saved">Compteurs HifzAI enregistrés.</string>
+    <string name="legacy_unchanged">Le fichier ne contient aucun compteur plus récent.</string>
+    <string name="legacy_failed">Importation impossible. Choisissez un CSV de progression HifzAI.</string>
 </resources>

@@ -64,4 +64,9 @@
  <string name="zakat">زکوٰۃ اور صدقہ</string>
  <string name="fasting">روزہ اور رمضان</string>
  <string name="hajj">حج اور عمرہ</string>
+    <string name="legacy_import">HifzAI کی CSV درآمد کریں</string>
+    <string name="legacy_count">درآمد شدہ شمار والی آیات: %1$d</string>
+    <string name="legacy_saved">HifzAI کے شمار محفوظ ہو گئے۔</string>
+    <string name="legacy_unchanged">فائل میں نئے شمار موجود نہیں ہیں۔</string>
+    <string name="legacy_failed">فائل درآمد نہیں ہو سکی۔ HifzAI کی پیش رفت کی CSV فائل منتخب کریں۔</string>
 </resources>

@@ -64,4 +64,9 @@
  <string name="zakat">Zakat y caridad</string>
  <string name="fasting">Ayuno y Ramadán</string>
  <string name="hajj">Hayy y Umra</string>
+    <string name="legacy_import">Importar CSV de HifzAI</string>
+    <string name="legacy_count">Aleyas con contadores importados: %1$d</string>
+    <string name="legacy_saved">Se guardaron los contadores de HifzAI.</string>
+    <string name="legacy_unchanged">El archivo no contiene contadores más recientes.</string>
+    <string name="legacy_failed">No se pudo importar el archivo. Elige un CSV de progreso de HifzAI.</string>
 </resources>

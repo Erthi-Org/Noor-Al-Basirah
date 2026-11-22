@@ -64,4 +64,9 @@
  <string name="zakat">الزكاة والصدقة</string>
  <string name="fasting">الصيام ورمضان</string>
  <string name="hajj">الحج والعمرة</string>
+    <string name="legacy_import">استيراد ملف CSV من HifzAI</string>
+    <string name="legacy_count">آيات لها عدادات مستوردة: %1$d</string>
+    <string name="legacy_saved">حُفظت عدادات HifzAI.</string>
+    <string name="legacy_unchanged">لا توجد عدادات أحدث في الملف.</string>
+    <string name="legacy_failed">تعذر استيراد الملف. اختر ملف CSV لتقدم HifzAI.</string>
 </resources>

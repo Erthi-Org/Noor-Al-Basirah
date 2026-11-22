@@ -27,3 +27,11 @@ Debug APK: `app/build/outputs/apk/debug/app-debug.apk`. It uses a disposable Deb
 
 ## Next priorities
 Finish the safe migration of tested audio/progress/bookmark components from the preserved HifzAI reference; provide an explicit old-data import path; verify text rendering and TalkBack on physical devices. [Detailed HifzAI audit and migration provenance](docs/HIFZAI_AUDIT_2026-11-09.md). The upstream repository retains the original history. The migration manifest records the source commit, individual digests, and the checksum of the local history backup. Imported files retain original MIT attribution.
+
+## Importing HifzAI progress counters
+
+Export per-verse progress as CSV from a HifzAI build that offers CSV export. On the Noor
+home screen, choose **Import HifzAI CSV** and select the file. Noor keeps the record with
+the highest attempt count for each verse and keeps the existing record on ties. The home
+screen shows the number of verses with imported counters. HifzAI's CSV carries counters
+only, so Noor keeps its session and spaced-review schedule separately.

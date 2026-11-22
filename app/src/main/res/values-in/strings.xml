@@ -64,4 +64,9 @@
  <string name="zakat">Zakat dan sedekah</string>
  <string name="fasting">Puasa dan Ramadan</string>
  <string name="hajj">Haji dan umrah</string>
+    <string name="legacy_import">Impor CSV HifzAI</string>
+    <string name="legacy_count">Ayat dengan penghitung yang diimpor: %1$d</string>
+    <string name="legacy_saved">Penghitung HifzAI disimpan.</string>
+    <string name="legacy_unchanged">Berkas tidak berisi penghitung yang lebih baru.</string>
+    <string name="legacy_failed">Berkas gagal diimpor. Pilih CSV progres HifzAI.</string>
 </resources>

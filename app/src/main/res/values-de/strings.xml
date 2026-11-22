@@ -64,4 +64,9 @@
  <string name="zakat">Zakat und Almosen</string>
  <string name="fasting">Fasten und Ramadan</string>
  <string name="hajj">Hadsch und Umra</string>
+    <string name="legacy_import">HifzAI-CSV importieren</string>
+    <string name="legacy_count">Verse mit importierten Zählern: %1$d</string>
+    <string name="legacy_saved">HifzAI-Zähler gespeichert.</string>
+    <string name="legacy_unchanged">Die Datei enthält keine neueren Zähler.</string>
+    <string name="legacy_failed">Import fehlgeschlagen. Wählen Sie eine HifzAI-Fortschrittsdatei im CSV-Format.</string>
 </resources>

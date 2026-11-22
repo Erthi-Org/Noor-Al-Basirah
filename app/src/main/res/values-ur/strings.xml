@@ -51,7 +51,6 @@
  <string name="hint_count">اشارے: %1$d</string>
  <string name="verse_address">سورہ %1$d · آیت %2$d</string>
  <string name="source_credit">قرآنی متن: تنزیل عثمانی 1.1 — https://tanzil.net/</string>
- <string name="no_audio">اس الفا نسخے میں مجاز قاری کی تلاوت دستیاب نہیں۔</string>
  <string name="target_saved">سیکھنے کا ہدف محفوظ</string>
  <string name="learn_prayer">نماز سیکھیں</string>
  <string name="child">ننھا مسلمان</string>
@@ -64,4 +63,28 @@
  <string name="zakat">زکوٰۃ اور صدقہ</string>
  <string name="fasting">روزہ اور رمضان</string>
  <string name="hajj">حج اور عمرہ</string>
+    <string name="legacy_import">HifzAI کی CSV درآمد کریں</string>
+    <string name="legacy_count">درآمد شدہ شمار والی آیات: %1$d</string>
+    <string name="legacy_saved">HifzAI کے شمار محفوظ ہو گئے۔</string>
+    <string name="legacy_unchanged">فائل میں نئے شمار موجود نہیں ہیں۔</string>
+    <string name="legacy_failed">فائل درآمد نہیں ہو سکی۔ HifzAI کی پیش رفت کی CSV فائل منتخب کریں۔</string>
+    <string name="bookmarks">نشان زد آیات</string>
+    <string name="bookmarks_empty">ابھی کوئی آیت نشان زد نہیں ہے۔</string>
+    <string name="bookmark_verse">آیت کا نشان</string>
+    <string name="audio_title">مقامی تلاوت</string>
+    <string name="audio_choose">آڈیو فائل منتخب کریں</string>
+    <string name="audio_help">اپنی فائلوں سے ریکارڈنگ منتخب کریں۔</string>
+    <string name="audio_ready">آڈیو تیار ہے۔</string>
+    <string name="audio_playing">چل رہی ہے۔</string>
+    <string name="audio_paused">عارضی وقفہ۔</string>
+    <string name="audio_finished">تلاوت مکمل ہوئی۔</string>
+    <string name="audio_error">آڈیو فائل نہیں چل سکی۔</string>
+    <string name="audio_focus">آڈیو مصروف ہے۔ دوبارہ کوشش کریں۔</string>
+    <string name="audio_play">چلائیں</string>
+    <string name="audio_pause">وقفہ کریں</string>
+    <string name="audio_time">%2$d سیکنڈ میں سے %1$d</string>
+    <string name="audio_back">15 سیکنڈ پیچھے</string>
+    <string name="audio_forward">15 سیکنڈ آگے</string>
+    <string name="audio_speed">رفتار 100 میں سے %1$d</string>
+    <string name="audio_repeat">فائل دہرائیں</string>
 </resources>

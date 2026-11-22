@@ -51,7 +51,6 @@
  <string name="hint_count">Hinweise: %1$d</string>
  <string name="verse_address">Sure %1$d · Vers %2$d</string>
  <string name="source_credit">Korantext: Tanzil Uthmani 1.1 — https://tanzil.net/</string>
- <string name="no_audio">Lizenzierte Rezitationen sind in dieser Alpha noch nicht verfügbar.</string>
  <string name="target_saved">Lernziel gespeichert</string>
  <string name="learn_prayer">Gebet lernen</string>
  <string name="child">Kleiner Muslim</string>
@@ -64,4 +63,28 @@
  <string name="zakat">Zakat und Almosen</string>
  <string name="fasting">Fasten und Ramadan</string>
  <string name="hajj">Hadsch und Umra</string>
+    <string name="legacy_import">HifzAI-CSV importieren</string>
+    <string name="legacy_count">Verse mit importierten Zählern: %1$d</string>
+    <string name="legacy_saved">HifzAI-Zähler gespeichert.</string>
+    <string name="legacy_unchanged">Die Datei enthält keine neueren Zähler.</string>
+    <string name="legacy_failed">Import fehlgeschlagen. Wählen Sie eine HifzAI-Fortschrittsdatei im CSV-Format.</string>
+    <string name="bookmarks">Lesezeichen</string>
+    <string name="bookmarks_empty">Noch keine Verse gespeichert.</string>
+    <string name="bookmark_verse">Verslesezeichen</string>
+    <string name="audio_title">Lokale Rezitation</string>
+    <string name="audio_choose">Audiodatei wählen</string>
+    <string name="audio_help">Wähle eine Aufnahme aus deinen Dateien.</string>
+    <string name="audio_ready">Bereit zur Wiedergabe.</string>
+    <string name="audio_playing">Wiedergabe läuft.</string>
+    <string name="audio_paused">Pausiert.</string>
+    <string name="audio_finished">Wiedergabe beendet.</string>
+    <string name="audio_error">Audiodatei konnte nicht abgespielt werden.</string>
+    <string name="audio_focus">Audio ist belegt. Versuche es erneut.</string>
+    <string name="audio_play">Abspielen</string>
+    <string name="audio_pause">Pause</string>
+    <string name="audio_time">%1$d von %2$d Sekunden</string>
+    <string name="audio_back">15 Sekunden zurück</string>
+    <string name="audio_forward">15 Sekunden vor</string>
+    <string name="audio_speed">Tempo %1$d von 100</string>
+    <string name="audio_repeat">Datei wiederholen</string>
 </resources>

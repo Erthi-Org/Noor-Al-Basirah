@@ -65,7 +65,8 @@ class MainActivity : AppCompatActivity() {
     MaterialTheme(colorScheme = contrasted) { Surface(Modifier.fillMaxSize()) {
         val nav = rememberNavController()
         NavHost(nav, startDestination = "home") {
-            composable("home") { HomeScreen(onSettings = { nav.navigate("settings") }) }
+            composable("home") { HomeScreen(onSettings = { nav.navigate("settings") }, onAudio = { nav.navigate("audio") }) }
+            composable("audio") { LocalRecitationScreen(back = { nav.popBackStack() }) }
             composable("settings") { SettingsScreen(appearance, { nav.popBackStack() }) }
         }
     } }

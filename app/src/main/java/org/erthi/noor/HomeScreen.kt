@@ -1,10 +1,15 @@
 package org.erthi.noor
 
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.outlined.BookmarkBorder
+import androidx.compose.ui.platform.testTag
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -24,12 +29,18 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.nexvary.hifzai.learning.*
 import java.time.LocalDate
 
-@Composable fun HomeScreen(onSettings: () -> Unit, model: NoorModel = viewModel()) {
+@Composable fun HomeScreen(onSettings: () -> Unit, onAudio: () -> Unit, model: NoorModel = viewModel()) {
     val state by model.state.collectAsStateWithLifecycle()
     val corpus = state.corpus
+    val legacyCount by model.legacyCount.collectAsStateWithLifecycle()
+    val importStatus by model.importStatus.collectAsStateWithLifecycle()
+    val csvPicker = rememberLauncherForActivityResult(ActivityResultContracts.GetContent()) { uri ->
+        if (uri != null) model.importLegacy(uri)
+    }
     val haptic = LocalHapticFeedback.current
     var search by rememberSaveable { mutableStateOf("") }
     var selecting by rememberSaveable { mutableStateOf(false) }
+    var showBookmarks by rememberSaveable { mutableStateOf(false) }
     var license by rememberSaveable { mutableStateOf(false) }
     val context = androidx.compose.ui.platform.LocalContext.current
     if (license) {
@@ -41,9 +52,37 @@ import java.time.LocalDate
             text={LazyColumn { item { Text(content ?: stringResource(R.string.loading)) } }},
             confirmButton={TextButton(onClick={license=false}) { Text(stringResource(R.string.back)) }})
     }
+    if (showBookmarks && corpus != null) {
+        AlertDialog(
+            onDismissRequest = { showBookmarks = false },
+            title = { Text(stringResource(R.string.bookmarks)) },
+            text = {
+                if (state.bookmarks.isEmpty()) {
+                    Text(stringResource(R.string.bookmarks_empty))
+                } else {
+                    LazyColumn {
+                        items(state.bookmarks.sorted(), key = { it }) { id ->
+                            val chapter = id / 1000
+                            val ayah = id % 1000
+                            TextButton(
+                                onClick = { model.select(chapter, ayah); showBookmarks = false },
+                                modifier = Modifier.fillMaxWidth().testTag("bookmark-$id"),
+                            ) {
+                                Text(stringResource(R.string.verse_address, chapter, ayah))
+                            }
+                        }
+                    }
+                }
+            },
+            confirmButton = { TextButton(onClick = { showBookmarks = false }) { Text(stringResource(R.string.back)) } },
+        )
+    }
     LazyColumn(Modifier.fillMaxSize().safeDrawingPadding().padding(horizontal=20.dp), verticalArrangement=Arrangement.spacedBy(12.dp)) {
         item { Row(Modifier.fillMaxWidth(), horizontalArrangement=Arrangement.SpaceBetween) {
             Text(stringResource(R.string.app_name), style=MaterialTheme.typography.headlineMedium, modifier=Modifier.weight(1f).semantics { heading() })
+            IconButton(onClick = { showBookmarks = true }, enabled = corpus != null) {
+                Icon(Icons.Filled.Bookmark, stringResource(R.string.bookmarks))
+            }
             IconButton(onClick=onSettings) { Icon(Icons.Default.Settings,stringResource(R.string.settings)) }
         }; Text(stringResource(R.string.identity), style=MaterialTheme.typography.labelMedium) }
         item { Text(stringResource(R.string.review_notice), style=MaterialTheme.typography.bodySmall) }
@@ -69,8 +108,16 @@ import java.time.LocalDate
                 }
             }
             item {
-                Text(stringResource(R.string.verse_address, session.chapter, session.ayah),
-                    modifier = Modifier.semantics { liveRegion = LiveRegionMode.Polite })
+                Row(Modifier.fillMaxWidth(), verticalAlignment = androidx.compose.ui.Alignment.CenterVertically) {
+                    Text(stringResource(R.string.verse_address, session.chapter, session.ayah),
+                        modifier = Modifier.weight(1f).semantics { liveRegion = LiveRegionMode.Polite })
+                    val saved = verse.id in state.bookmarks
+                    IconToggleButton(checked = saved, onCheckedChange = { model.toggleBookmark(verse.id) },
+                        modifier = Modifier.testTag("toggle-bookmark")) {
+                        Icon(if (saved) Icons.Filled.Bookmark else Icons.Outlined.BookmarkBorder,
+                            stringResource(R.string.bookmark_verse))
+                    }
+                }
                 Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                     OutlinedButton(onClick = { model.move(-1) }, enabled = session.ayah > 1,
                         modifier = Modifier.weight(1f)) { Text(stringResource(R.string.previous)) }
@@ -125,7 +172,29 @@ import java.time.LocalDate
                     modifier=Modifier.semantics { contentDescription=context.getString(R.string.daily_target) })
                 Button(onClick=model::dailyPractice,modifier=Modifier.fillMaxWidth()) { Text(stringResource(R.string.practice)) }
             }
-            item { Text(stringResource(R.string.no_audio)); Text(stringResource(R.string.source_credit));
+            item {
+                TextButton(onClick = { csvPicker.launch("text/*") },
+                    enabled = importStatus != LegacyImportStatus.BUSY, modifier = Modifier.fillMaxWidth()) {
+                    Text(stringResource(R.string.legacy_import))
+                }
+                legacyCount?.takeIf { it > 0 }?.let { count ->
+                    Text(stringResource(R.string.legacy_count, count))
+                }
+                importStatus?.let { status ->
+                    val message = when (status) {
+                        LegacyImportStatus.BUSY -> R.string.loading
+                        LegacyImportStatus.SAVED -> R.string.legacy_saved
+                        LegacyImportStatus.UNCHANGED -> R.string.legacy_unchanged
+                        LegacyImportStatus.FAILED -> R.string.legacy_failed
+                    }
+                    Text(stringResource(message), modifier = Modifier.semantics { liveRegion = LiveRegionMode.Polite })
+                }
+            }
+            item {
+                OutlinedButton(onClick = onAudio, modifier = Modifier.fillMaxWidth()) {
+                    Text(stringResource(R.string.audio_title))
+                }
+                Text(stringResource(R.string.source_credit))
                 TextButton(onClick={license=true}) { Text(stringResource(R.string.sources)) }; Spacer(Modifier.height(20.dp)) }
         }
     }

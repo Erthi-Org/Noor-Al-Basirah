@@ -51,7 +51,6 @@
  <string name="hint_count">التلميحات: %1$d</string>
  <string name="verse_address">سورة %1$d · آية %2$d</string>
  <string name="source_credit">النص القرآني: تنزيل، الرسم العثماني 1.1 — https://tanzil.net/</string>
- <string name="no_audio">التلاوات المرخصة غير متاحة في هذه النسخة الأولية.</string>
  <string name="target_saved">حُفظ هدف التعلم</string>
  <string name="learn_prayer">علّمني الصلاة</string>
  <string name="child">المسلم الصغير</string>
@@ -64,4 +63,28 @@
  <string name="zakat">الزكاة والصدقة</string>
  <string name="fasting">الصيام ورمضان</string>
  <string name="hajj">الحج والعمرة</string>
+    <string name="legacy_import">استيراد ملف CSV من HifzAI</string>
+    <string name="legacy_count">آيات لها عدادات مستوردة: %1$d</string>
+    <string name="legacy_saved">حُفظت عدادات HifzAI.</string>
+    <string name="legacy_unchanged">لا توجد عدادات أحدث في الملف.</string>
+    <string name="legacy_failed">تعذر استيراد الملف. اختر ملف CSV لتقدم HifzAI.</string>
+    <string name="bookmarks">العلامات المرجعية</string>
+    <string name="bookmarks_empty">لم تُضف أي علامات مرجعية بعد.</string>
+    <string name="bookmark_verse">علامة الآية المرجعية</string>
+    <string name="audio_title">التلاوة المحلية</string>
+    <string name="audio_choose">اختر ملفًا صوتيًا</string>
+    <string name="audio_help">اختر تسجيلًا من ملفاتك لتشغيله هنا.</string>
+    <string name="audio_ready">الملف جاهز للتشغيل.</string>
+    <string name="audio_playing">جارٍ التشغيل.</string>
+    <string name="audio_paused">متوقف مؤقتًا.</string>
+    <string name="audio_finished">انتهى التشغيل.</string>
+    <string name="audio_error">تعذر تشغيل الملف الصوتي.</string>
+    <string name="audio_focus">الصوت مشغول. حاول التشغيل مرة أخرى.</string>
+    <string name="audio_play">تشغيل</string>
+    <string name="audio_pause">إيقاف مؤقت</string>
+    <string name="audio_time">%1$d من %2$d ثانية</string>
+    <string name="audio_back">رجوع 15 ثانية</string>
+    <string name="audio_forward">تقديم 15 ثانية</string>
+    <string name="audio_speed">السرعة %1$d من 100</string>
+    <string name="audio_repeat">تكرار الملف</string>
 </resources>

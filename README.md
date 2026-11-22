@@ -3,7 +3,7 @@
 Erthi | إرثي — Free & Open-Source Islamic Software
 https://erthi.org · admin@erthi.org
 
-Android alpha for offline Quran memorization, built around selectively migrated MIT HifzAI engines and their original tests. Includes a byte-verified 6236-ayah Tanzil corpus, source-based search and surah/ayah navigation, display-only word masking, recall/bridge stages, bounded self-assessment, spaced review, local session/progress and a daily target. External reciter playback and the old app’s full feature set have not yet been migrated.
+Android alpha for offline Quran memorization, built around selectively migrated MIT HifzAI engines and their original tests. Includes a byte-verified 6236-ayah Tanzil corpus, source-based search and surah/ayah navigation, display-only word masking, recall/bridge stages, bounded self-assessment, spaced review, local session/progress and a daily target. Local audio playback supports recordings selected from the Android file picker.
 
 ## Test status and scope
 This is 0.1.0-alpha, for technical testing. No scholarly certification, production readiness or physical-device validation is claimed. Erthi is a personal free/open-source initiative; the GitHub organization is not asserted to be an independent legal entity. No legal HifzAI IP assignment is claimed.
@@ -27,3 +27,20 @@ Debug APK: `app/build/outputs/apk/debug/app-debug.apk`. It uses a disposable Deb
 
 ## Next priorities
 Finish the safe migration of tested audio/progress/bookmark components from the preserved HifzAI reference; provide an explicit old-data import path; verify text rendering and TalkBack on physical devices. [Detailed HifzAI audit and migration provenance](docs/HIFZAI_AUDIT_2026-11-09.md). The upstream repository retains the original history. The migration manifest records the source commit, individual digests, and the checksum of the local history backup. Imported files retain original MIT attribution.
+
+## Importing HifzAI progress counters
+
+Export per-verse progress as CSV from a HifzAI build that offers CSV export. On the Noor
+home screen, choose **Import HifzAI CSV** and select the file. Noor keeps the record with
+the highest attempt count for each verse and keeps the existing record on ties. The home
+screen shows the number of verses with imported counters. HifzAI's CSV carries counters
+only, so Noor keeps its session and spaced-review schedule separately.
+
+## Local recitation
+
+Open **Local recitation** on the home screen and choose an audio document supplied by your
+device. The player supports play, pause, 15-second jumps, three playback speeds, and
+whole-file repeat. Leaving the screen or losing audio focus pauses playback. The app
+keeps the selected file only for the active screen, with no bundled recordings or direct
+network access. Verse ranges, background playback, and position recovery after process
+death remain open.

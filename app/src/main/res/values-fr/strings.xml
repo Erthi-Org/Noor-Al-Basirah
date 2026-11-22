@@ -51,7 +51,6 @@
  <string name="hint_count">Indices : %1$d</string>
  <string name="verse_address">Sourate %1$d · Verset %2$d</string>
  <string name="source_credit">Texte coranique : Tanzil Uthmani 1.1 — https://tanzil.net/</string>
- <string name="no_audio">Les récitations autorisées ne sont pas disponibles dans cette version alpha.</string>
  <string name="target_saved">Objectif enregistré</string>
  <string name="learn_prayer">Apprendre la prière</string>
  <string name="child">Le petit musulman</string>
@@ -72,4 +71,20 @@
     <string name="bookmarks">Favoris</string>
     <string name="bookmarks_empty">Aucun verset dans les favoris.</string>
     <string name="bookmark_verse">Favori du verset</string>
+    <string name="audio_title">Récitation locale</string>
+    <string name="audio_choose">Choisir un fichier audio</string>
+    <string name="audio_help">Choisissez un enregistrement dans vos fichiers.</string>
+    <string name="audio_ready">Audio prêt.</string>
+    <string name="audio_playing">Lecture en cours.</string>
+    <string name="audio_paused">Lecture en pause.</string>
+    <string name="audio_finished">Lecture terminée.</string>
+    <string name="audio_error">Impossible de lire ce fichier audio.</string>
+    <string name="audio_focus">Son indisponible. Réessayez.</string>
+    <string name="audio_play">Lire</string>
+    <string name="audio_pause">Mettre en pause</string>
+    <string name="audio_time">%1$d sur %2$d secondes</string>
+    <string name="audio_back">Reculer de 15 secondes</string>
+    <string name="audio_forward">Avancer de 15 secondes</string>
+    <string name="audio_speed">Vitesse %1$d sur 100</string>
+    <string name="audio_repeat">Répéter le fichier</string>
 </resources>

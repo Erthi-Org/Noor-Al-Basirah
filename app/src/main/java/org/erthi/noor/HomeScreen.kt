@@ -29,7 +29,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.nexvary.hifzai.learning.*
 import java.time.LocalDate
 
-@Composable fun HomeScreen(onSettings: () -> Unit, model: NoorModel = viewModel()) {
+@Composable fun HomeScreen(onSettings: () -> Unit, onAudio: () -> Unit, model: NoorModel = viewModel()) {
     val state by model.state.collectAsStateWithLifecycle()
     val corpus = state.corpus
     val legacyCount by model.legacyCount.collectAsStateWithLifecycle()
@@ -190,7 +190,11 @@ import java.time.LocalDate
                     Text(stringResource(message), modifier = Modifier.semantics { liveRegion = LiveRegionMode.Polite })
                 }
             }
-            item { Text(stringResource(R.string.no_audio)); Text(stringResource(R.string.source_credit));
+            item {
+                OutlinedButton(onClick = onAudio, modifier = Modifier.fillMaxWidth()) {
+                    Text(stringResource(R.string.audio_title))
+                }
+                Text(stringResource(R.string.source_credit))
                 TextButton(onClick={license=true}) { Text(stringResource(R.string.sources)) }; Spacer(Modifier.height(20.dp)) }
         }
     }

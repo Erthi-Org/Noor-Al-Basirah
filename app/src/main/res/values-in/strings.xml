@@ -51,7 +51,6 @@
  <string name="hint_count">Petunjuk: %1$d</string>
  <string name="verse_address">Surah %1$d · Ayat %2$d</string>
  <string name="source_credit">Teks Al-Quran: Tanzil Uthmani 1.1 — https://tanzil.net/</string>
- <string name="no_audio">Audio qari berlisensi belum tersedia dalam versi alfa ini.</string>
  <string name="target_saved">Target belajar disimpan</string>
  <string name="learn_prayer">Belajar salat</string>
  <string name="child">Muslim cilik</string>
@@ -72,4 +71,20 @@
     <string name="bookmarks">Markah</string>
     <string name="bookmarks_empty">Belum ada ayat yang ditandai.</string>
     <string name="bookmark_verse">Markah ayat</string>
+    <string name="audio_title">Tilawah lokal</string>
+    <string name="audio_choose">Pilih berkas audio</string>
+    <string name="audio_help">Pilih rekaman dari berkas Anda.</string>
+    <string name="audio_ready">Audio siap.</string>
+    <string name="audio_playing">Sedang diputar.</string>
+    <string name="audio_paused">Dijeda.</string>
+    <string name="audio_finished">Pemutaran selesai.</string>
+    <string name="audio_error">Berkas audio gagal diputar.</string>
+    <string name="audio_focus">Audio sedang digunakan. Coba putar kembali.</string>
+    <string name="audio_play">Putar</string>
+    <string name="audio_pause">Jeda</string>
+    <string name="audio_time">%1$d dari %2$d detik</string>
+    <string name="audio_back">Mundur 15 detik</string>
+    <string name="audio_forward">Maju 15 detik</string>
+    <string name="audio_speed">Kecepatan %1$d dari 100</string>
+    <string name="audio_repeat">Ulangi berkas</string>
 </resources>

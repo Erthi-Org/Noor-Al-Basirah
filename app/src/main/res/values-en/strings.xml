@@ -51,7 +51,6 @@
  <string name="hint_count">Hints: %1$d</string>
  <string name="verse_address">Surah %1$d · Ayah %2$d</string>
  <string name="source_credit">Quran text: Tanzil Uthmani 1.1 — https://tanzil.net/</string>
- <string name="no_audio">Licensed reciter audio is not available in this alpha.</string>
  <string name="target_saved">Learning goal saved</string>
  <string name="learn_prayer">Learn Prayer</string>
  <string name="child">Muslim Child</string>
@@ -72,4 +71,20 @@
     <string name="bookmarks">Bookmarks</string>
     <string name="bookmarks_empty">No bookmarked verses yet.</string>
     <string name="bookmark_verse">Verse bookmark</string>
+    <string name="audio_title">Local recitation</string>
+    <string name="audio_choose">Choose audio file</string>
+    <string name="audio_help">Choose a recording from your files to play here.</string>
+    <string name="audio_ready">Audio ready.</string>
+    <string name="audio_playing">Playing.</string>
+    <string name="audio_paused">Paused.</string>
+    <string name="audio_finished">Playback finished.</string>
+    <string name="audio_error">Could not play this audio file.</string>
+    <string name="audio_focus">Audio is busy. Try playing again.</string>
+    <string name="audio_play">Play</string>
+    <string name="audio_pause">Pause</string>
+    <string name="audio_time">%1$d of %2$d seconds</string>
+    <string name="audio_back">Back 15 seconds</string>
+    <string name="audio_forward">Forward 15 seconds</string>
+    <string name="audio_speed">Speed %1$d out of 100</string>
+    <string name="audio_repeat">Repeat file</string>
 </resources>

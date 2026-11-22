@@ -51,7 +51,6 @@
  <string name="hint_count">Pistas: %1$d</string>
  <string name="verse_address">Sura %1$d · Aleya %2$d</string>
  <string name="source_credit">Texto coránico: Tanzil Uthmani 1.1 — https://tanzil.net/</string>
- <string name="no_audio">Las recitaciones autorizadas no están disponibles en esta versión alfa.</string>
  <string name="target_saved">Objetivo guardado</string>
  <string name="learn_prayer">Aprende a rezar</string>
  <string name="child">El pequeño musulmán</string>
@@ -72,4 +71,20 @@
     <string name="bookmarks">Marcadores</string>
     <string name="bookmarks_empty">Aún no hay aleyas marcadas.</string>
     <string name="bookmark_verse">Marcador de la aleya</string>
+    <string name="audio_title">Recitación local</string>
+    <string name="audio_choose">Elegir archivo de audio</string>
+    <string name="audio_help">Elige una grabación de tus archivos.</string>
+    <string name="audio_ready">Audio listo.</string>
+    <string name="audio_playing">Reproduciendo.</string>
+    <string name="audio_paused">En pausa.</string>
+    <string name="audio_finished">Reproducción finalizada.</string>
+    <string name="audio_error">No se pudo reproducir el audio.</string>
+    <string name="audio_focus">El audio está ocupado. Inténtalo de nuevo.</string>
+    <string name="audio_play">Reproducir</string>
+    <string name="audio_pause">Pausar</string>
+    <string name="audio_time">%1$d de %2$d segundos</string>
+    <string name="audio_back">Retroceder 15 segundos</string>
+    <string name="audio_forward">Avanzar 15 segundos</string>
+    <string name="audio_speed">Velocidad %1$d de 100</string>
+    <string name="audio_repeat">Repetir archivo</string>
 </resources>

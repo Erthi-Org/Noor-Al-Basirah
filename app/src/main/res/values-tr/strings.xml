@@ -51,7 +51,6 @@
  <string name="hint_count">İpuçları: %1$d</string>
  <string name="verse_address">Sure %1$d · Ayet %2$d</string>
  <string name="source_credit">Kur’an metni: Tanzil Uthmani 1.1 — https://tanzil.net/</string>
- <string name="no_audio">Lisanslı okuyucu sesleri bu alfa sürümünde mevcut değil.</string>
  <string name="target_saved">Öğrenme hedefi kaydedildi</string>
  <string name="learn_prayer">Namazı öğren</string>
  <string name="child">Küçük Müslüman</string>
@@ -72,4 +71,20 @@
     <string name="bookmarks">Yer işaretleri</string>
     <string name="bookmarks_empty">Henüz işaretlenmiş ayet yok.</string>
     <string name="bookmark_verse">Ayet yer işareti</string>
+    <string name="audio_title">Yerel tilavet</string>
+    <string name="audio_choose">Ses dosyası seç</string>
+    <string name="audio_help">Dosyalarınızdan bir kayıt seçin.</string>
+    <string name="audio_ready">Ses hazır.</string>
+    <string name="audio_playing">Oynatılıyor.</string>
+    <string name="audio_paused">Duraklatıldı.</string>
+    <string name="audio_finished">Oynatma tamamlandı.</string>
+    <string name="audio_error">Ses dosyası oynatılamadı.</string>
+    <string name="audio_focus">Ses kullanımda. Tekrar deneyin.</string>
+    <string name="audio_play">Oynat</string>
+    <string name="audio_pause">Duraklat</string>
+    <string name="audio_time">%2$d saniyenin %1$d saniyesi</string>
+    <string name="audio_back">15 saniye geri</string>
+    <string name="audio_forward">15 saniye ileri</string>
+    <string name="audio_speed">Hız 100 üzerinden %1$d</string>
+    <string name="audio_repeat">Dosyayı tekrarla</string>
 </resources>

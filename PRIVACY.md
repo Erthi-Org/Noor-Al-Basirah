@@ -6,3 +6,7 @@ The operator is an individual using the public Erthi identity; Erthi-Org is not 
 Users may explicitly select a HifzAI progress CSV through Android's document chooser.
 Noor stores the imported per-verse counters in its private files and does not retain
 permission to the source document. Clearing app storage also removes those counters.
+
+Local recitation reads only an audio document selected through Android's picker. The app
+does not copy audio into private storage, retain a document permission for later use,
+or transmit the recording.

@@ -64,7 +64,10 @@ import java.time.LocalDate
                 val results=if(address!=null) listOf(address) else if(search.length>=2) corpus.searchIndex.search(search,20) else emptyList()
                 items(results,key={ "verse-${it.id}" }) { found ->
                     TextButton(onClick={model.select(found.chapter,found.verse);selecting=false;search=""},modifier=Modifier.fillMaxWidth()) {
-                        Column { Text(stringResource(R.string.verse_address,found.chapter,found.verse));Text(found.text,maxLines=2) }
+                        Column {
+                            Text(stringResource(R.string.verse_address, found.chapter, found.verse))
+                            Text(corpus.ayahText(found), maxLines = 2)
+                        }
                     }
                 }
             }
@@ -86,20 +89,22 @@ import java.time.LocalDate
                 }
                 PageTitle(stringResource(stageRes))
                 val concealed=RecallLadder.concealment(session.stage,session.hints,session.exposed)
-                Card(Modifier.fillMaxWidth()) { Column(Modifier.padding(20.dp)) {
-                    // Both pixels and accessibility semantics receive only the presentation mask.
-                    // The canonical record remains immutable. No hidden answer in contentDescription.
-                    Text(VerseMask.display(verse.text,concealed,verse.id),fontFamily=FontFamily(Font(R.font.amiri_quran)),fontSize=30.sp,lineHeight=60.sp,
-                        style=TextStyle(textDirection=TextDirection.Rtl),modifier=Modifier.fillMaxWidth())
-                    if(session.stage==PracticeKind.BRIDGE) {
-                        corpus.find(session.chapter,session.ayah+1)?.let { next ->
-                            HorizontalDivider(Modifier.padding(vertical=12.dp))
-                            Text(stringResource(R.string.verse_address,next.chapter,next.verse))
-                            Text(VerseMask.display(next.text,concealed,next.id),fontFamily=FontFamily(Font(R.font.amiri_quran)),fontSize=30.sp,lineHeight=60.sp,
-                                style=TextStyle(textDirection=TextDirection.Rtl))
+                val presentation = corpus.presentation(verse)
+                Card(Modifier.fillMaxWidth()) {
+                    Column(Modifier.padding(20.dp)) {
+                        if (session.stage == PracticeKind.READ) {
+                            presentation.opening?.let { QuranPracticeText(it) }
+                        }
+                        QuranPracticeText(VerseMask.display(presentation.ayahText, concealed, verse.id))
+                        if (session.stage == PracticeKind.BRIDGE) {
+                            corpus.find(session.chapter, session.ayah + 1)?.let { next ->
+                                HorizontalDivider(Modifier.padding(vertical = 12.dp))
+                                Text(stringResource(R.string.verse_address, next.chapter, next.verse))
+                                QuranPracticeText(VerseMask.display(corpus.ayahText(next), concealed, next.id))
+                            }
                         }
                     }
-                } }
+                }
             }
             item {
                 Button(onClick={model.nextStage();haptic.performHapticFeedback(HapticFeedbackType.LongPress)},modifier=Modifier.fillMaxWidth()) { Text(stringResource(R.string.next_stage)) }
@@ -129,4 +134,16 @@ import java.time.LocalDate
                 TextButton(onClick={license=true}) { Text(stringResource(R.string.sources)) }; Spacer(Modifier.height(20.dp)) }
         }
     }
+}
+
+@Composable
+private fun QuranPracticeText(text: String) {
+    Text(
+        text = text,
+        modifier = Modifier.fillMaxWidth(),
+        fontFamily = FontFamily(Font(R.font.amiri_quran)),
+        fontSize = 30.sp,
+        lineHeight = 60.sp,
+        style = TextStyle(textDirection = TextDirection.Rtl),
+    )
 }

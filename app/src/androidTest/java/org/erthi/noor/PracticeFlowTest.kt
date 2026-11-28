@@ -9,6 +9,8 @@ import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.core.os.LocaleListCompat
 import androidx.test.platform.app.InstrumentationRegistry
 import com.nexvary.hifzai.learning.PracticeKind
+import com.nexvary.hifzai.learning.RecallLadder
+import com.nexvary.hifzai.learning.VerseMask
 import org.junit.Assert.assertEquals
 import org.junit.Rule
 import org.junit.Test
@@ -20,6 +22,41 @@ class PracticeFlowTest {
     private fun click(label: String) {
         rule.onNode(hasScrollToIndexAction()).performScrollToNode(hasText(label))
         rule.onNodeWithText(label).assertIsEnabled().performSemanticsAction(SemanticsActions.OnClick) { it() }
+    }
+
+    @Test fun openingIsSeparateInReadingAndExcludedFromRecall() {
+        val repo = NoorRepository(rule.activity.application)
+        val corpus = repo.loadCorpus()
+        val firstChapter = rule.activity.getString(R.string.chapter) + ": " +
+            corpus.info(repo.session().chapter).arabicName
+        rule.waitUntil(30000) { rule.onAllNodesWithText(firstChapter).fetchSemanticsNodes().isNotEmpty() }
+        click(firstChapter)
+        val verse = requireNotNull(corpus.find(95, 1))
+        val presentation = corpus.presentation(verse)
+        val opening = requireNotNull(presentation.opening)
+        rule.onNode(hasSetTextAction()).performTextInput("95:1")
+        rule.onNode(hasScrollToIndexAction()).performScrollToNode(hasText(presentation.ayahText))
+        rule.onNodeWithText(presentation.ayahText).assertIsDisplayed()
+        rule.onNodeWithText(verse.text).assertDoesNotExist()
+        click(rule.activity.getString(R.string.verse_address, 95, 1))
+        rule.waitUntil(10000) { repo.session().chapter == 95 && repo.session().ayah == 1 }
+
+        rule.onNode(hasScrollToIndexAction()).performScrollToNode(hasText(opening))
+        rule.onNodeWithText(opening).assertIsDisplayed()
+        rule.onNodeWithText(presentation.ayahText).assertExists()
+        rule.onNodeWithText(verse.text).assertDoesNotExist()
+
+        val nextStage = rule.activity.getString(R.string.next_stage)
+        repeat(3) { click(nextStage) }
+        val masked = VerseMask.display(presentation.ayahText, RecallLadder.concealment(PracticeKind.RECALL), verse.id)
+        rule.onNode(hasScrollToIndexAction()).performScrollToNode(hasText(masked))
+        rule.onNodeWithText(masked).assertIsDisplayed()
+        rule.onNodeWithText(opening).assertDoesNotExist()
+        rule.onNodeWithText(presentation.ayahText).assertDoesNotExist()
+        click(rule.activity.getString(R.string.reveal))
+        rule.onNode(hasScrollToIndexAction()).performScrollToNode(hasText(presentation.ayahText))
+        rule.onNodeWithText(presentation.ayahText).assertIsDisplayed()
+        rule.onNodeWithText(opening).assertDoesNotExist()
     }
 
     @Test fun chooseAyahRepeatRecallAndPreserveScheduleAcrossConfigurationChanges() {
